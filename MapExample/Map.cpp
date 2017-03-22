@@ -4,7 +4,7 @@
 
 Map::Map(std::string startLocationName)
 {
-	CurrentLocation = new Location(startLocationName);
+	CurrentLocation = new Location(startLocationName, 0, 0);
 }
 
 

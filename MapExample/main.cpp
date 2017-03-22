@@ -43,13 +43,17 @@ int main()
 void GoNorth(Map &map) 
 {
 	auto newLocation = map.CurrentLocation->North;
+	int currentX = map.CurrentLocation->getX();
+	int currentY = map.CurrentLocation->getY();
 	if (newLocation == nullptr) 
 	{
+		int newX = currentX;
+		int newY = currentY + 1;
 		system("cls");
 		cout << "You haven't been here before, enter a name for this place: ";
 		string name;
 		cin >> name;
-		newLocation = new Location(name);
+		newLocation = new Location(name, newX, newY);
 		cout << "This place is now called: " + name << endl;
 		
 	}
