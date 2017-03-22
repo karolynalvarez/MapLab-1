@@ -5,7 +5,7 @@
 Map::Map(std::string startLocationName)
 {
 	CurrentLocation = new Location(startLocationName, 0, 0);
-	std::string hash = "( 0, 0)";
+	std::string hash = "(0,0)";
 	_mapLookup[hash] = CurrentLocation;
 }
 

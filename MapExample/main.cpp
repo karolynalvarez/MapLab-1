@@ -62,6 +62,7 @@ void GoNorth(Map &map)
 		}
 		else {
 			cout << "You've been here before." << existing->DisplayLocationInfo();
+			newLocation = existing;
 		}
 	}
 	else
@@ -69,6 +70,7 @@ void GoNorth(Map &map)
 		cout << "You are at: " + newLocation->DisplayLocationInfo();
 	}
 	newLocation->South = map.CurrentLocation;
+	map.CurrentLocation->North = newLocation;
 	map.Move(newLocation);	
 	return;
 }
@@ -95,6 +97,7 @@ void GoEast(Map &map)
 		}
 		else {
 			cout << "You've been here before." << existing->DisplayLocationInfo();
+			newLocation = existing;
 		}
 	}
 	else
@@ -102,6 +105,7 @@ void GoEast(Map &map)
 		cout << "You are at: " + newLocation->DisplayLocationInfo();
 	}
 	newLocation->West = map.CurrentLocation;
+	map.CurrentLocation->East = newLocation; 
 	map.Move(newLocation);
 	return;
 }
@@ -128,13 +132,16 @@ void GoSouth(Map &map)
 		}
 		else {
 			cout << "You've been here before." << existing->DisplayLocationInfo();
+			newLocation = existing;
 		}
 	}
 	else
 	{
 		cout << "You are at: " + newLocation->DisplayLocationInfo();
+		
 	}
 	newLocation->North = map.CurrentLocation;
+	map.CurrentLocation->South = newLocation;
 	map.Move(newLocation);
 	return;
 }
@@ -161,6 +168,7 @@ void GoWest(Map &map)
 		}
 		else {
 			cout << "You've been here before." << existing->DisplayLocationInfo();
+			newLocation = existing;
 		}
 	}
 	else
@@ -168,6 +176,7 @@ void GoWest(Map &map)
 		cout << "You are at: " + newLocation->DisplayLocationInfo();
 	}
 	newLocation->East = map.CurrentLocation;
+	map.CurrentLocation->West = newLocation;
 	map.Move(newLocation);
 	return;
 }
